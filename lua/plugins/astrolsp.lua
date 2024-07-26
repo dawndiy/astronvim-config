@@ -39,11 +39,24 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      "sourcekit",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      sourcekit = {
+        cmd = { "xcrun", "sourcekit-lsp" },
+        filetypes = { "swift", "objective-c", "objective-cpp" },
+        root_dir = require("lspconfig").util.root_pattern(
+          "buildServer.json",
+          "*.xcodeproj",
+          "*.xcworkspace",
+          ".git",
+          "compile_commands.json",
+          "Package.swift"
+        ),
+      },
     },
     -- customize how language servers are attached
     handlers = {
@@ -53,6 +66,10 @@ return {
       -- the key is the server that is being setup with `lspconfig`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
       -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+      sourcekit = function(_, opts)
+        require("lspconfig").sourcekit.setup(opts)
+        require("null-ls").register(require("null-ls").builtins.formatting.swift_format)
+      end,
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
