@@ -8,10 +8,12 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.swift" },
+  -- { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  { import = "astrocommunity.colorscheme.cyberdream-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
 

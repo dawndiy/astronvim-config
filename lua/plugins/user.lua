@@ -8,10 +8,18 @@ return {
   -- },
   {
     "Exafunction/codeium.vim",
-    version = "1.8.37",
+    -- version = "1.8.37",
   },
+  -- {
+  --   "dart-lang/dart-vim-plugin",
+  -- },
   {
-    "dart-lang/dart-vim-plugin",
+    "akinsho/flutter-tools.nvim",
+    opts = function(_, opts)
+      opts.debugger = {
+        enabled = false,
+      }
+    end,
   },
   {
     "ray-x/lsp_signature.nvim",
