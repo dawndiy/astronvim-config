@@ -1,3 +1,60 @@
+---@type LazySpec
+return {
+  {
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            "██████   █████  ██     ██ ███    ██",
+            "██   ██ ██   ██ ██     ██ ████   ██",
+            "██   ██ ███████ ██  █  ██ ██ ██  ██",
+            "██   ██ ██   ██ ██ ███ ██ ██  ██ ██",
+            "██████  ██   ██  ███ ███  ██   ████",
+            "                                   ",
+            "███    ██  ██    ██ ██ ███    ███",
+            "████   ██  ██    ██ ██ ████  ████",
+            "██ ██  ██  ██    ██ ██ ██ ████ ██",
+            "██  ██ ██   ██  ██  ██ ██  ██  ██",
+            "██   ████    ████   ██ ██      ██",
+          }, "\n"),
+        },
+      },
+    },
+  },
+  {
+    "akinsho/flutter-tools.nvim",
+    opts = function(_, opts)
+      opts.debugger = {
+        enabled = false,
+      }
+    end,
+  },
+  {
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        n = {
+          ["<Leader>tc"] = {
+            -- "<Cmd>ToggleTerm size=80 direction=vertical<CR>",
+            function()
+              local astro = require "astrocore"
+              astro.toggle_term_cmd {
+                cmd = "crush",
+                name = "crush",
+                direction = "vertical",
+                on_open = function(term) term:resize(75) end,
+              }
+            end,
+            desc = "ToggleTerm Crush",
+          },
+        },
+      },
+    },
+  },
+}
+
+--[[
 if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
@@ -88,3 +145,4 @@ return {
     end,
   },
 }
+--]]
