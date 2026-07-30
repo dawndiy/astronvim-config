@@ -22,5 +22,7 @@ return {
   { import = "astrocommunity.color.transparent-nvim" },
 
   { import = "astrocommunity.completion.codeium-vim" },
+  -- { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   -- import/override with your plugins folder
 }
